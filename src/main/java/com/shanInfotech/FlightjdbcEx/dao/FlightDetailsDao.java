@@ -18,6 +18,7 @@ ResultSet rs=null;
 public void addFlight(FlightDetails fd) throws Exception {
 	// TODO Auto-generated method stub
 	con=DBConnect.Connect();
+	con.setAutoCommit(false);
 	st=con.createStatement();
 	System.out.println("Flight Details: ID,FlightCompany,TravelDate,Source,Destination");
 	fd.setFlightId(sc.nextInt());
@@ -29,7 +30,9 @@ public void addFlight(FlightDetails fd) throws Exception {
 	String insertFlights="insert into flightdetails values("+fd.getFlightId()+",'"+fd.getFlightCompany()+"','"
 			+fd.getTravelDate()+"','"+fd.getSource()+"','"+fd.getDestination()+"')";
 	st.executeUpdate(insertFlights);
+	con.commit();
 	System.out.println("Data Inserted");
+	con.close();
 	
 }
 @Override
@@ -39,7 +42,8 @@ public void updateFlight() {
 }
 @Override
 public void getFlight() throws Exception {
-	// TODO Auto-generated method stub
+	con=DBConnect.Connect();
+	st=con.createStatement();
 	String queryResult="select * from flightdetails";// result set id used for fetching the data from the database
 	rs=st.executeQuery(queryResult);
 	while(rs.next()) {
