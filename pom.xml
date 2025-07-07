@@ -59,7 +59,7 @@
                 <configuration>
                     <archive>
                         <manifest>
-                            <App> com.shanInfotech.flightJdbcApp</App>
+                            <ToyMain> com.shanInfotech.flightJdbcApp</ToyMain>
                         </manifest>
                     </archive>
                 </configuration>
