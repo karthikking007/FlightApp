@@ -1,6 +1,5 @@
 package com.shanInfotech.FlightjdbcEx;
 
-import com.shanInfotech.FlightjdbcEx.Entity.FlightDetails;
 import com.shanInfotech.FlightjdbcEx.dao.FlightDetailsDao;
 
 public class App {
